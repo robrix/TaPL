@@ -29,10 +29,19 @@ func literal(string: String)(input: String) -> (String, String)? {
 	return nil
 }
 
-infix operator --> {  }
+postfix operator * {}
 
-func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: String) -> (T, String)? {
-	if let (parsed, rest) = combinator(input) { return (map(parsed), rest) }
+postfix func * <T>(combinator: String -> (T, String)?)(var input: String) -> String {
+	while let result = combinator(input) {
+		input = result.1
+	}
+	return input
+}
+
+infix operator --> {}
+
+func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: String) -> (term: T, rest: String)? {
+	if let (parsed, rest) = combinator(input) { return (term: map(parsed), rest: rest) }
 
 	return nil
 }
