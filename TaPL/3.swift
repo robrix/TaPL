@@ -11,3 +11,11 @@ public enum Term {
 	case Successor(Box<Term>)
 	case Predecessor(Box<Term>)
 }
+
+
+func literal(string: String)(input: String) -> (String, String)? {
+	if startsWith(input, string) {
+		return (string, input[advance(input.startIndex, countElements(string))..<string.endIndex])
+	}
+	return nil
+}
