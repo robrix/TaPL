@@ -2,7 +2,7 @@
 
 // The untyped calculus of booleans and numbers.
 
-public enum Term {
+public enum Term : Equatable {
 	case True
 	case False
 	case Zero
@@ -10,6 +10,15 @@ public enum Term {
 	case IsZero(Box<Term>)
 	case Successor(Box<Term>)
 	case Predecessor(Box<Term>)
+}
+
+public func == (lhs: Term, rhs: Term) -> Bool {
+	switch (lhs, rhs) {
+	case (.True, .True): return true
+	case (.False, .False): return true
+	case (.Zero, .Zero): return true
+	default: return false
+	}
 }
 
 
