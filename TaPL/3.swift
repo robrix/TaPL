@@ -27,3 +27,7 @@ func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: S
 
 	return nil
 }
+
+
+public let parseTrue = literal("true") --> { _ in Term.True }
+public let parseFalse = literal("false") --> { _ in Term.False }
