@@ -19,3 +19,11 @@ func literal(string: String)(input: String) -> (String, String)? {
 	}
 	return nil
 }
+
+infix operator --> {  }
+
+func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: String) -> (T, String)? {
+	if let (parsed, rest) = combinator(input) { return (map(parsed), rest) }
+
+	return nil
+}
