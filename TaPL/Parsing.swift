@@ -9,7 +9,7 @@ struct Combinator<T> {
 /// Constructs a literal parser for `string`.
 func literal(string: String)(input: String) -> (String, String)? {
 	if startsWith(input, string) {
-		return (string, input[advance(input.startIndex, countElements(string))..<string.endIndex])
+		return (string, input[advance(input.startIndex, countElements(string))..<input.endIndex])
 	}
 	return nil
 }
