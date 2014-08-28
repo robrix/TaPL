@@ -15,6 +15,11 @@ func literal(string: String)(input: String) -> (String, String)? {
 }
 
 
+/// Constructs a parser which drops its results.
+func ignore<T>(combinator: Combinator<T>.FunctionType) -> String -> (term: (), rest: String)? {
+	return combinator --> { _ in () }
+}
+
 
 // MARK: Repetition
 
