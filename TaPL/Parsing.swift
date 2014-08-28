@@ -38,7 +38,7 @@ postfix func * <T>(combinator: Combinator<T>.FunctionType)(var input: String) ->
 
 // MARK: Reduction
 
-infix operator --> {}
+infix operator --> { precedence 170 }
 
 /// Constructs a reduction parser, mapping `T` onto `U` via `map`.
 func --> <T, U>(combinator: Combinator<T>.FunctionType, map: T -> U)(input: String) -> (term: U, rest: String)? {
