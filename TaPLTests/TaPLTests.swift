@@ -21,4 +21,11 @@ class TaPLTests : XCTestCase {
 	func testParseWhitespace() {
 		XCTAssertTrue(parseWhitespace("   f")?.rest == "f")
 	}
+
+	func testParseIsZero() {
+		let parsed = parseIsZero(input: "iszero true")
+		println(parsed)
+		println(parsed?.term)
+		XCTAssertTrue(parseIsZero(input: "iszero true")?.term == Term.IsZero(Box(Term.True)))
+	}
 }
