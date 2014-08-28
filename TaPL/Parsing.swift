@@ -52,7 +52,7 @@ func --> <T, U>(combinator: Combinator<T>.FunctionType, map: T -> U)(input: Stri
 
 infix operator ++ {
 	associativity right
-	precedence 150
+	precedence 160
 }
 
 /// Constructs the concatenation of `lhs` and `rhs`.
