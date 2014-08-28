@@ -50,6 +50,20 @@ func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: S
 	return nil
 }
 
+infix operator ++ {
+	associativity right
+	precedence 150
+}
+
+func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> ((T, U), String)? {
+	if let (lparsed, lrest) = lhs(input) {
+		if let (rparsed, rrest) = rhs(lrest) {
+			return ((lparsed, rparsed), rrest)
+		}
+	}
+	return nil
+}
+
 
 public let parseTrue = literal("true") --> { _ in Term.True }
 public let parseFalse = literal("false") --> { _ in Term.False }
