@@ -8,4 +8,10 @@ class TaPLTests : XCTestCase {
 		let result = parseTrue(input: "true")
 		XCTAssertTrue(result?.term == Term.True)
 	}
+
+	func testParseConstant() {
+		XCTAssertTrue(parseConstant(input: "true")?.term.left?.left == Term.True)
+		XCTAssertTrue(parseConstant(input: "false")?.term.left?.right == Term.False)
+		XCTAssertTrue(parseConstant(input: "0")?.term.right == Term.Zero)
+	}
 }

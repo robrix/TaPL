@@ -33,6 +33,8 @@ public let parseTrue = literal("true") --> { _ in Term.True }
 public let parseFalse = literal("false") --> { _ in Term.False }
 public let parseZero = literal("0") --> { _ in Term.Zero }
 
+public let parseConstant = parseTrue | parseFalse | parseZero
+
 public let parseWhitespace = literal(" ")*
 
 public let parseIsZero = literal("iszero")// ++ parseTerm
