@@ -2,9 +2,9 @@
 
 /// Ubiquitous, iniquitous.
 public final class Box<T> {
-	let value: T
+	public let value: T
 
-	init(_ value: T) {
+	public init(_ value: T) {
 		self.value = value
 	}
 }
