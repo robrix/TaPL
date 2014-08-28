@@ -49,7 +49,7 @@ public var parseTerm: Combinator<Term>.FunctionType {
 	if let parseTerm = _parseTerm { return parseTerm }
 
 	_parseTerm = { input in
-		_parseTerm = parseConstant | parseIsZero
+		_parseTerm = parseConstant | parseIsZero | parseSuccessor
 		return _parseTerm(input: input)
 	}
 	return _parseTerm
@@ -64,3 +64,5 @@ public let parseConstant = parseTrue | parseFalse | parseZero
 public let parseWhitespace = ignore(literal(" ")*)
 
 public let parseIsZero: (input: String) -> (term: Term, rest: String)? = ignore(literal("iszero")) ++ parseWhitespace ++ parseTerm --> { x in Term.IsZero(Box(x)) }
+
+public let parseSuccessor: (input: String) -> (term: Term, rest: String)? = ignore(literal("succ")) ++ parseWhitespace ++ parseTerm --> { x in Term.Successor(Box(x)) }
