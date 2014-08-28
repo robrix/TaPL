@@ -68,10 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				D46F177C19AC21A40054B51D /* TaPL.h */,
-				D46F179219AC22AF0054B51D /* Box.swift */,
-				D471DD5619AEAD0F00741E82 /* Either.swift */,
-				D471DD5419AEACDA00741E82 /* Parsing.swift */,
 				D46F179019AC22630054B51D /* 3.swift */,
+				D471DD5419AEACDA00741E82 /* Parsing.swift */,
 				D46F177A19AC21A40054B51D /* Supporting Files */,
 			);
 			path = TaPL;
@@ -80,6 +78,8 @@
 		D46F177A19AC21A40054B51D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D46F179219AC22AF0054B51D /* Box.swift */,
+				D471DD5619AEAD0F00741E82 /* Either.swift */,
 				D46F177B19AC21A40054B51D /* Info.plist */,
 			);
 			name = "Supporting Files";
