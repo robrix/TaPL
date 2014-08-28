@@ -33,6 +33,12 @@ public func == (lhs: Term, rhs: Term) -> Bool {
 		return true
 	case let (.IsZero(x), .IsZero(y)) where x == y:
 		return true
+	case let (.Successor(x), .Successor(y)) where x == y:
+		return true
+	case let (.Predecessor(x), .Predecessor(y)) where x == y:
+		return true
+	case let (.If(x1, y1, z1), .If(x2, y2, z2)) where x1 == x2 && y1 == y2 && z1 == z2:
+		return true
 	default:
 		return false
 	}
