@@ -34,8 +34,8 @@ func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: S
 }
 
 infix operator ++ {
-associativity right
-precedence 150
+	associativity right
+	precedence 150
 }
 
 /// Constructs the concatenation of `lhs` and `rhs`.
@@ -46,12 +46,6 @@ func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)
 		}
 	}
 	return nil
-}
-
-/// A binary choice.
-public enum Either<L, R> {
-	case Left(Box<L>)
-	case Right(Box<R>)
 }
 
 /// Constructs the alternation of `lhs` and `rhs`.
