@@ -5,6 +5,7 @@ struct Combinator<T> {
 	typealias FunctionType = String -> (T, String)?
 }
 
+
 /// Constructs a literal parser for `string`.
 func literal(string: String)(input: String) -> (String, String)? {
 	if startsWith(input, string) {
@@ -13,6 +14,9 @@ func literal(string: String)(input: String) -> (String, String)? {
 	return nil
 }
 
+
+
+// MARK: Repetition
 
 postfix operator * {}
 
@@ -26,6 +30,9 @@ postfix func * <T>(combinator: String -> (T, String)?)(var input: String) -> ([T
 	return (matches, input)
 }
 
+
+// MARK: Reduction
+
 infix operator --> {}
 
 /// Constructs a reduction parser, mapping parsed input into `T` via `map`.
@@ -34,6 +41,9 @@ func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: S
 
 	return nil
 }
+
+
+// MARK: Concatenation
 
 infix operator ++ {
 	associativity right
@@ -49,6 +59,9 @@ func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)
 	}
 	return nil
 }
+
+
+// MARK: Alternation
 
 /// Constructs the alternation of `lhs` and `rhs`.
 func | <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> (term: Either<T, U>, rest: String)? {
