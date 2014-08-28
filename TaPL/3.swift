@@ -16,6 +16,14 @@ public enum Term : Equatable {
 
 	// MARK: Ternary
 	case If(Box<Term>, Box<Term>, Box<Term>)
+
+	// MARK: Classification
+	var constant: Bool {
+		switch self {
+		case .True, .False, .Zero: return true
+		default: return false
+		}
+	}
 }
 
 /// Equality over terms.
