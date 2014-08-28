@@ -17,6 +17,9 @@ class TaPLTests : XCTestCase {
 	func testParseTerm() {
 		XCTAssertTrue(parseTerm(input: "true")?.term == Term.True)
 		XCTAssertTrue(parseTerm(input: "succ succ 0")?.term == Term.Successor(Box(Term.Successor(Box(Term.Zero)))))
+		XCTAssertTrue(parseTerm(input: "if iszero 0 then true else false")?.term == Term.If(Box(Term.IsZero(Box(Term.Zero))), Box(Term.True), Box(Term.False)))
+		XCTAssertTrue(parseTerm(input: "if true then iszero 0 else false")?.term == Term.If(Box(Term.True), Box(Term.IsZero(Box(Term.Zero))), Box(Term.False)))
+		XCTAssertTrue(parseTerm(input: "if true then 0 else iszero 0")?.term == Term.If(Box(Term.True), Box(Term.Zero), Box(Term.IsZero(Box(Term.Zero)))))
 	}
 
 	func testParseWhitespace() {

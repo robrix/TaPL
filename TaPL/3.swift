@@ -49,7 +49,7 @@ public var parseTerm: Combinator<Term>.FunctionType {
 	if let parseTerm = _parseTerm { return parseTerm }
 
 	_parseTerm = { input in
-		_parseTerm = parseConstant | parseIsZero | parseSuccessor | parsePredecessor
+		_parseTerm = parseConstant | parseIsZero | parseSuccessor | parsePredecessor | parseIf
 		return _parseTerm(input: input)
 	}
 	return _parseTerm
