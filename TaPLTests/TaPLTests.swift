@@ -29,4 +29,8 @@ class TaPLTests : XCTestCase {
 	func testParseSuccessor() {
 		XCTAssertTrue(parseSuccessor(input: "succ false")?.term == Term.Successor(Box(Term.False)))
 	}
+
+	func testParsePredecessor() {
+		XCTAssertTrue(parsePredecessor(input: "pred 0")?.term == Term.Predecessor(Box(Term.Zero)))
+	}
 }
