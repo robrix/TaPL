@@ -63,6 +63,6 @@ public let parseConstant = parseTrue | parseFalse | parseZero
 
 public let parseWhitespace = ignore(literal(" ")*)
 
-public let parseIsZero: (input: String) -> (term: Term, rest: String)? = ignore(literal("iszero")) ++ parseWhitespace ++ parseTerm --> { x in Term.IsZero(Box(x)) }
+public let parseIsZero = ignore(literal("iszero")) ++ parseWhitespace ++ parseTerm --> { x in Term.IsZero(Box(x)) }
 
-public let parseSuccessor: (input: String) -> (term: Term, rest: String)? = ignore(literal("succ")) ++ parseWhitespace ++ parseTerm --> { x in Term.Successor(Box(x)) }
+public let parseSuccessor = ignore(literal("succ")) ++ parseWhitespace ++ parseTerm --> { x in Term.Successor(Box(x)) }
