@@ -65,6 +65,26 @@ func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)
 	return nil
 }
 
+/// Constructs the concatenation of `lhs` and `rhs`, dropping `rhs`’ input.
+func ++ <T>(lhs: Combinator<T>.FunctionType, rhs: Combinator<Void>.FunctionType)(input: String) -> (term: T, rest: String)? {
+	if let (lparsed, lrest) = lhs(input) {
+		if let (rparsed: Void, rrest: String) = rhs(lrest) {
+			return (lparsed, rrest)
+		}
+	}
+	return nil
+}
+
+/// Constructs the concatenation of `lhs` and `rhs`, dropping `lhs`’ input.
+func ++ <T>(lhs: Combinator<Void>.FunctionType, rhs: Combinator<T>.FunctionType)(input: String) -> (term: T, rest: String)? {
+	if let (lparsed: Void, lrest: String) = lhs(input) {
+		if let (rparsed, rrest) = rhs(lrest) {
+			return (rparsed, rrest)
+		}
+	}
+	return nil
+}
+
 
 // MARK: Alternation
 
