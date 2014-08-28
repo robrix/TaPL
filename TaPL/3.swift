@@ -78,7 +78,7 @@ func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)
 }
 
 /// A binary choice.
-enum Either<L, R> {
+public enum Either<L, R> {
 	case Left(Box<L>)
 	case Right(Box<R>)
 }
@@ -97,3 +97,7 @@ public let parseFalse = literal("false") --> { _ in Term.False }
 public let parseZero = literal("0") --> { _ in Term.Zero }
 
 public let parseWhitespace = literal(" ")*
+
+public let parseIsZero = literal("iszero")// ++ parseTerm
+
+public let parseTerm = parseTrue | parseFalse// | parseZero | parseWhitespace | parseIsZero
