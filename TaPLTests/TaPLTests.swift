@@ -17,4 +17,8 @@ class TaPLTests : XCTestCase {
 	func testParseTerm() {
 		XCTAssertTrue(parseTerm(input: "true")?.term == Term.True)
 	}
+
+	func testParseWhitespace() {
+		XCTAssertTrue(parseWhitespace("   f")?.rest == "f")
+	}
 }
