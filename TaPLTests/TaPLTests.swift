@@ -23,9 +23,6 @@ class TaPLTests : XCTestCase {
 	}
 
 	func testParseIsZero() {
-		let parsed = parseIsZero(input: "iszero true")
-		println(parsed)
-		println(parsed?.term)
 		XCTAssertTrue(parseIsZero(input: "iszero true")?.term == Term.IsZero(Box(Term.True)))
 	}
 }
