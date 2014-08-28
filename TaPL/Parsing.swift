@@ -41,7 +41,7 @@ infix operator ++ {
 }
 
 /// Constructs the concatenation of `lhs` and `rhs`.
-func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> ((T, U), String)? {
+func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> (term: (T, U), rest: String)? {
 	if let (lparsed, lrest) = lhs(input) {
 		if let (rparsed, rrest) = rhs(lrest) {
 			return ((lparsed, rparsed), rrest)
@@ -51,7 +51,7 @@ func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)
 }
 
 /// Constructs the alternation of `lhs` and `rhs`.
-func | <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> (Either<T, U>, String)? {
+func | <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> (term: Either<T, U>, rest: String)? {
 	if let (parsed, rest) = lhs(input) { return (.Left(Box(parsed)), rest) }
 	if let (parsed, rest) = rhs(input) { return (.Right(Box(parsed)), rest) }
 	return nil
