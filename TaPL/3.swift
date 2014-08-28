@@ -37,4 +37,4 @@ public let parseConstant = parseTrue | parseFalse | parseZero
 
 public let parseWhitespace = ignore(literal(" ")*)
 
-public let parseIsZero: String -> (Term, String)? = ignore(literal("iszero")) ++ parseWhitespace ++ parseTerm --> { x in eval(x) == .Zero ? .True : .False }
+public let parseIsZero: String -> (Term, String)? = ignore(literal("iszero")) ++ parseWhitespace ++ parseTerm --> { x in Term.IsZero(Box(x)) }
