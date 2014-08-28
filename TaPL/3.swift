@@ -34,8 +34,16 @@ public func == (lhs: Term, rhs: Term) -> Bool {
 	}
 }
 
+private var _parseTerm: Combinator<Term>.FunctionType!
+public var parseTerm: Combinator<Term>.FunctionType {
+	if let parseTerm = _parseTerm { return parseTerm }
 
-public let parseTerm = parseConstant | parseIsZero
+	_parseTerm = { input in
+		_parseTerm = parseConstant | parseIsZero
+		return _parseTerm(input: input)
+	}
+	return _parseTerm
+}
 
 public let parseTrue = literal("true") --> { _ in Term.True }
 public let parseFalse = literal("false") --> { _ in Term.False }
