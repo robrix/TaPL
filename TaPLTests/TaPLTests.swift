@@ -33,4 +33,8 @@ class TaPLTests : XCTestCase {
 	func testParsePredecessor() {
 		XCTAssertTrue(parsePredecessor(input: "pred 0")?.term == Term.Predecessor(Box(Term.Zero)))
 	}
+
+	func testParseIf() {
+		XCTAssertTrue(parseIf(input: "if true then false else 0")?.term == Term.If(Box(Term.True), Box(Term.False), Box(Term.Zero)))
+	}
 }

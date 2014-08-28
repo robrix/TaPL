@@ -67,3 +67,8 @@ public let parseIsZero = ignore(literal("iszero")) ++ parseWhitespace ++ parseTe
 
 public let parseSuccessor = ignore(literal("succ")) ++ parseWhitespace ++ parseTerm --> { x in Term.Successor(Box(x)) }
 public let parsePredecessor = ignore(literal("pred")) ++ parseWhitespace ++ parseTerm --> { x in Term.Predecessor(Box(x)) }
+
+public let parseCondition = ignore(literal("if")) ++ parseWhitespace ++ parseTerm
+public let parseThen = ignore(literal("then")) ++ parseWhitespace ++ parseTerm
+public let parseElse = ignore(literal("else")) ++ parseWhitespace ++ parseTerm
+public let parseIf = (parseCondition ++ parseWhitespace ++ parseThen ++ parseWhitespace ++ parseElse) --> { (v: (Term, (Term, Term))) in Term.If(Box(v.0), Box(v.1.0), Box(v.1.1)) }
