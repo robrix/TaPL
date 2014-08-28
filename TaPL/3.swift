@@ -22,6 +22,10 @@ public func == (lhs: Term, rhs: Term) -> Bool {
 }
 
 
+struct Combinator<T> {
+	typealias FunctionType = String -> (T, String)?
+}
+
 func literal(string: String)(input: String) -> (String, String)? {
 	if startsWith(input, string) {
 		return (string, input[advance(input.startIndex, countElements(string))..<string.endIndex])
