@@ -2,7 +2,7 @@
 
 /// A hack to provide a type-generic typealias for combinator functions.
 struct Combinator<T> {
-	typealias FunctionType = String -> (T, String)?
+	typealias FunctionType = (input: String) -> (term: T, rest: String)?
 }
 
 
@@ -28,9 +28,9 @@ postfix operator * {}
 /// Constructs a repetition parser.
 postfix func * <T>(combinator: Combinator<T>.FunctionType)(var input: String) -> ([T], String)? {
 	var matches: [T] = []
-	while let result = combinator(input) {
-		matches.append(result.0)
-		input = result.1
+	while let result = combinator(input: input) {
+		matches.append(result.term)
+		input = result.rest
 	}
 	return (matches, input)
 }
@@ -42,7 +42,7 @@ infix operator --> {}
 
 /// Constructs a reduction parser, mapping `T` onto `U` via `map`.
 func --> <T, U>(combinator: Combinator<T>.FunctionType, map: T -> U)(input: String) -> (term: U, rest: String)? {
-	if let (parsed, rest) = combinator(input) { return (term: map(parsed), rest: rest) }
+	if let (parsed, rest) = combinator(input: input) { return (term: map(parsed), rest: rest) }
 
 	return nil
 }
@@ -57,8 +57,8 @@ infix operator ++ {
 
 /// Constructs the concatenation of `lhs` and `rhs`.
 func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> (term: (T, U), rest: String)? {
-	if let (lparsed, lrest) = lhs(input) {
-		if let (rparsed, rrest) = rhs(lrest) {
+	if let (lparsed, lrest) = lhs(input: input) {
+		if let (rparsed, rrest) = rhs(input: lrest) {
 			return ((lparsed, rparsed), rrest)
 		}
 	}
@@ -67,8 +67,8 @@ func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)
 
 /// Constructs the concatenation of `lhs` and `rhs`, dropping `rhs`’ input.
 func ++ <T>(lhs: Combinator<T>.FunctionType, rhs: Combinator<Void>.FunctionType)(input: String) -> (term: T, rest: String)? {
-	if let (lparsed, lrest) = lhs(input) {
-		if let (rparsed: Void, rrest: String) = rhs(lrest) {
+	if let (lparsed, lrest) = lhs(input: input) {
+		if let (rparsed: Void, rrest: String) = rhs(input: lrest) {
 			return (lparsed, rrest)
 		}
 	}
@@ -77,8 +77,8 @@ func ++ <T>(lhs: Combinator<T>.FunctionType, rhs: Combinator<Void>.FunctionType)
 
 /// Constructs the concatenation of `lhs` and `rhs`, dropping `lhs`’ input.
 func ++ <T>(lhs: Combinator<Void>.FunctionType, rhs: Combinator<T>.FunctionType)(input: String) -> (term: T, rest: String)? {
-	if let (lparsed: Void, lrest: String) = lhs(input) {
-		if let (rparsed, rrest) = rhs(lrest) {
+	if let (lparsed: Void, lrest: String) = lhs(input: input) {
+		if let (rparsed, rrest) = rhs(input: lrest) {
 			return (rparsed, rrest)
 		}
 	}
@@ -90,14 +90,14 @@ func ++ <T>(lhs: Combinator<Void>.FunctionType, rhs: Combinator<T>.FunctionType)
 
 /// Constructs the alternation of `lhs` and `rhs`.
 func | <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> (term: Either<T, U>, rest: String)? {
-	if let (parsed, rest) = lhs(input) { return (.Left(Box(parsed)), rest) }
-	if let (parsed, rest) = rhs(input) { return (.Right(Box(parsed)), rest) }
+	if let (parsed, rest) = lhs(input: input) { return (.Left(Box(parsed)), rest) }
+	if let (parsed, rest) = rhs(input: input) { return (.Right(Box(parsed)), rest) }
 	return nil
 }
 
 /// Constructs the alternation of `lhs` and `rhs`, coalescing parsers of a single type.
 func | <T>(lhs: Combinator<T>.FunctionType, rhs: Combinator<T>.FunctionType)(input: String) -> (term: T, rest: String)? {
-	if let (parsed, rest) = lhs(input) { return (parsed, rest) }
-	if let (parsed, rest) = rhs(input) { return (parsed, rest) }
+	if let (parsed, rest) = lhs(input: input) { return (parsed, rest) }
+	if let (parsed, rest) = rhs(input: input) { return (parsed, rest) }
 	return nil
 }
