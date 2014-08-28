@@ -21,7 +21,7 @@ func literal(string: String)(input: String) -> (String, String)? {
 postfix operator * {}
 
 /// Constructs a repetition parser.
-postfix func * <T>(combinator: String -> (T, String)?)(var input: String) -> ([T], String)? {
+postfix func * <T>(combinator: Combinator<T>.FunctionType)(var input: String) -> ([T], String)? {
 	var matches: [T] = []
 	while let result = combinator(input) {
 		matches.append(result.0)
@@ -36,7 +36,7 @@ postfix func * <T>(combinator: String -> (T, String)?)(var input: String) -> ([T
 infix operator --> {}
 
 /// Constructs a reduction parser, mapping `T` onto `U` via `map`.
-func --> <T, U>(combinator: String -> (T, String)?, map: T -> U)(input: String) -> (term: U, rest: String)? {
+func --> <T, U>(combinator: Combinator<T>.FunctionType, map: T -> U)(input: String) -> (term: U, rest: String)? {
 	if let (parsed, rest) = combinator(input) { return (term: map(parsed), rest: rest) }
 
 	return nil
