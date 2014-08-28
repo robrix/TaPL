@@ -35,8 +35,8 @@ postfix func * <T>(combinator: String -> (T, String)?)(var input: String) -> ([T
 
 infix operator --> {}
 
-/// Constructs a reduction parser, mapping parsed input into `T` via `map`.
-func --> <T>(combinator: String -> (String, String)?, map: String -> T)(input: String) -> (term: T, rest: String)? {
+/// Constructs a reduction parser, mapping `T` onto `U` via `map`.
+func --> <T, U>(combinator: String -> (T, String)?, map: T -> U)(input: String) -> (term: U, rest: String)? {
 	if let (parsed, rest) = combinator(input) { return (term: map(parsed), rest: rest) }
 
 	return nil
