@@ -17,11 +17,13 @@ func literal(string: String)(input: String) -> (String, String)? {
 postfix operator * {}
 
 /// Constructs a repetition parser.
-postfix func * <T>(combinator: String -> (T, String)?)(var input: String) -> String {
+postfix func * <T>(combinator: String -> (T, String)?)(var input: String) -> ([T], String)? {
+	var matches: [T] = []
 	while let result = combinator(input) {
+		matches.append(result.0)
 		input = result.1
 	}
-	return input
+	return (matches, input)
 }
 
 infix operator --> {}
