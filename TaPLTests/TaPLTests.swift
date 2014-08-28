@@ -5,8 +5,7 @@ import TaPL
 
 class TaPLTests : XCTestCase {
 	func testParseTrue() {
-		let result = parseTrue(input: "true")
-		XCTAssertTrue(result?.term == Term.True)
+		XCTAssertTrue(parseTrue(input: "true")?.term == Term.True)
 	}
 
 	func testParseConstant() {
