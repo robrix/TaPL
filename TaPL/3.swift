@@ -21,9 +21,7 @@ public enum Term : Equatable {
 /// Equality over terms.
 public func == (lhs: Term, rhs: Term) -> Bool {
 	switch (lhs, rhs) {
-	case (.True, .True): return true
-	case (.False, .False): return true
-	case (.Zero, .Zero): return true
+	case (.True, .True), (.False, .False), (.Zero, .Zero): return true
 	default: return false
 	}
 }
