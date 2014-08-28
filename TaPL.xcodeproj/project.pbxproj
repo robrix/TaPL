@@ -11,6 +11,7 @@
 		D46F178719AC21A40054B51D /* TaPLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F178619AC21A40054B51D /* TaPLTests.swift */; };
 		D46F179119AC22630054B51D /* 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179019AC22630054B51D /* 3.swift */; };
 		D46F179319AC22AF0054B51D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
+		D471DD5519AEACDA00741E82 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D46F178619AC21A40054B51D /* TaPLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaPLTests.swift; sourceTree = "<group>"; };
 		D46F179019AC22630054B51D /* 3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 3.swift; sourceTree = "<group>"; };
 		D46F179219AC22AF0054B51D /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		D471DD5419AEACDA00741E82 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 			children = (
 				D46F177C19AC21A40054B51D /* TaPL.h */,
 				D46F179219AC22AF0054B51D /* Box.swift */,
+				D471DD5419AEACDA00741E82 /* Parsing.swift */,
 				D46F179019AC22630054B51D /* 3.swift */,
 				D46F177A19AC21A40054B51D /* Supporting Files */,
 			);
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D46F179119AC22630054B51D /* 3.swift in Sources */,
+				D471DD5519AEACDA00741E82 /* Parsing.swift in Sources */,
 				D46F179319AC22AF0054B51D /* Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +391,7 @@
 				D46F178C19AC21A40054B51D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D46F178D19AC21A40054B51D /* Build configuration list for PBXNativeTarget "TaPLTests" */ = {
 			isa = XCConfigurationList;
@@ -395,6 +400,7 @@
 				D46F178F19AC21A40054B51D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
