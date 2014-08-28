@@ -4,6 +4,20 @@
 public enum Either<L, R> {
 	case Left(Box<L>)
 	case Right(Box<R>)
+
+	public var left: L? {
+		switch self {
+		case let .Left(x): return x.value
+		default: return nil
+		}
+	}
+
+	public var right: R? {
+		switch self {
+		case let .Right(x): return x.value
+		default: return nil
+		}
+	}
 }
 
 
