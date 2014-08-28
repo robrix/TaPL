@@ -69,3 +69,10 @@ func | <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(
 	if let (parsed, rest) = rhs(input) { return (.Right(Box(parsed)), rest) }
 	return nil
 }
+
+/// Constructs the alternation of `lhs` and `rhs`, coalescing parsers of a single type.
+func | <T>(lhs: Combinator<T>.FunctionType, rhs: Combinator<T>.FunctionType)(input: String) -> (term: T, rest: String)? {
+	if let (parsed, rest) = lhs(input) { return (parsed, rest) }
+	if let (parsed, rest) = rhs(input) { return (parsed, rest) }
+	return nil
+}
