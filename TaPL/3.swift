@@ -64,6 +64,18 @@ func ++ <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)
 	return nil
 }
 
+enum Either<L, R> {
+	case Left(Box<L>)
+	case Right(Box<R>)
+}
+
+func | <T, U>(lhs: Combinator<T>.FunctionType, rhs: Combinator<U>.FunctionType)(input: String) -> (Either<T, U>, String)? {
+	if let (parsed, rest) = lhs(input) { return (.Left(Box(parsed)), rest) }
+	if let (parsed, rest) = rhs(input) { return (.Right(Box(parsed)), rest) }
+	return nil
+}
+
+
 
 public let parseTrue = literal("true") --> { _ in Term.True }
 public let parseFalse = literal("false") --> { _ in Term.False }
