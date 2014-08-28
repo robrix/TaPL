@@ -27,6 +27,8 @@ public func == (lhs: Term, rhs: Term) -> Bool {
 }
 
 
+public let parseTerm = parseTrue | parseFalse | parseZero | parseIsZero
+
 public let parseTrue = literal("true") --> { _ in Term.True }
 public let parseFalse = literal("false") --> { _ in Term.False }
 public let parseZero = literal("0") --> { _ in Term.Zero }
@@ -35,6 +37,4 @@ public let parseConstant = parseTrue | parseFalse | parseZero
 
 public let parseWhitespace = ignore(literal(" ")*)
 
-public let parseIsZero = literal("iszero")// ++ parseTerm
-
-public let parseTerm = parseTrue | parseFalse// | parseZero | parseWhitespace | parseIsZero
+public let parseIsZero: String -> (Term, String)? = ignore(literal("iszero")) ++ parseWhitespace ++ parseTerm --> { x in eval(x) == .Zero ? .True : .False }
