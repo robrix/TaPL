@@ -10,12 +10,12 @@ extension Term : BooleanType {
 }
 
 public func eval(term: Term) -> Term {
-	switch term {
+	switch term.destructure() {
 	case let .IsZero(x):
-		return eval(x.value) == Term.Zero ? Term.True : Term.False
+		return eval(x) == Term.Zero ? Term.True : Term.False
 
 	case let .If(x, y, z):
-		return eval(x.value) ? eval(y.value) : eval(z.value)
+		return eval(x) ? eval(y) : eval(z)
 
 	default:
 		return term
