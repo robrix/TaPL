@@ -11,13 +11,20 @@ extension Term : BooleanType {
 
 public func eval(term: Term) -> Term {
 	switch term.destructure() {
-	case let .IsZero(x):
-		return eval(x) == Term.Zero ? Term.True : Term.False
+	case let .Successor(x): return .Successor(Box(eval(x))) // E-Succ
 
-	case let .If(x, y, z):
-		return eval(x) ? eval(y) : eval(z)
+	case .Predecessor(.Zero): return .Zero // E-PredZero
+	case let .Predecessor(.Successor(x)): return x.value // E-PredSucc
+	case let .Predecessor(x): return eval(.Predecessor(Box(eval(x)))) // E-Pred
 
-	default:
-		return term
+	case .IsZero(.Zero): return .True // E-IsZeroZero
+	case .IsZero(.Successor): return .False // E-IsZeroSucc
+	case let .IsZero(x): return eval(.IsZero(Box(eval(x)))) // E-IsZero
+
+	case let .If(.True, x, _): return eval(x) // E-IfTrue
+	case let .If(.False, _, x): return eval(x) // E-IfFalse
+	case let .If(x, y, z): return eval(.If(Box(eval(x)), Box(y), Box(z))) // E-If
+
+	default: return term // .True, .False, and .Zero are already values
 	}
 }
