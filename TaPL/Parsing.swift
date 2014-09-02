@@ -1,8 +1,8 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// A hack to provide a type-generic typealias for combinator functions.
-struct Combinator<T> {
-	typealias FunctionType = (input: String) -> (term: T, rest: String)?
+struct Combinator<Term> {
+	typealias FunctionType = (input: String) -> (term: Term, rest: String)?
 }
 
 
