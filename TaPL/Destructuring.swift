@@ -1,5 +1,21 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
+extension Term {
+	func destructure() -> DestructuredTerm {
+		switch self {
+		case .True: return .True
+		case .False: return .False
+		case .Zero: return .Zero
+
+		case let .IsZero(x): return .IsZero(x.value)
+		case let .Successor(x): return .Successor(x.value)
+		case let .Predecessor(x): return .Predecessor(x.value)
+
+		case let .If(x, y, z): return .If(x.value, y.value, z.value)
+		}
+	}
+}
+
 enum DestructuredTerm {
 	case True
 	case False
@@ -10,18 +26,4 @@ enum DestructuredTerm {
 	case Predecessor(Term)
 
 	case If(Term, Term, Term)
-
-	init(_ term: Term) {
-		switch term {
-		case .True: self = .True
-		case .False: self = .False
-		case .Zero: self = .Zero
-
-		case let .IsZero(x): self = .IsZero(x.value)
-		case let .Successor(x): self = .Successor(x.value)
-		case let .Predecessor(x): self = .Predecessor(x.value)
-
-		case let .If(x, y, z): self = .If(x.value, y.value, z.value)
-		}
-	}
 }
