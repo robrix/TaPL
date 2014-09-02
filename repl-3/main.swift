@@ -16,3 +16,12 @@ func prompt() -> String? {
 	return readline(stdin)
 }
 
+while let line = prompt() {
+	if line == ":exit" { break }
+
+	if let (term, rest) = parseTerm(input: line) {
+		dump(term)
+	} else {
+		println("onoes")
+	}
+}
