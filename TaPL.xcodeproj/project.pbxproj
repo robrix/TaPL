@@ -22,6 +22,8 @@
 		D4BC9C8E19B52F0D0091552D /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5619AEAD0F00741E82 /* Either.swift */; };
 		D4BC9C9019B560CA0091552D /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C8F19B560CA0091552D /* Printing.swift */; };
 		D4BC9C9119B560EC0091552D /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C8F19B560CA0091552D /* Printing.swift */; };
+		D4BC9C9319B566290091552D /* Destructuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C9219B566290091552D /* Destructuring.swift */; };
+		D4BC9C9419B566330091552D /* Destructuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C9219B566290091552D /* Destructuring.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +53,7 @@
 		D4BC9C8319B52EE90091552D /* repl-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "repl-3"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BC9C8519B52EE90091552D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D4BC9C8F19B560CA0091552D /* Printing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printing.swift; sourceTree = "<group>"; };
+		D4BC9C9219B566290091552D /* Destructuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destructuring.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,7 @@
 				D471DD5819AEB95000741E82 /* Evaluation.swift */,
 				D4BC9C8F19B560CA0091552D /* Printing.swift */,
 				D471DD5419AEACDA00741E82 /* Parsing.swift */,
+				D4BC9C9219B566290091552D /* Destructuring.swift */,
 				D46F177A19AC21A40054B51D /* Supporting Files */,
 			);
 			path = TaPL;
@@ -274,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4BC9C9019B560CA0091552D /* Printing.swift in Sources */,
+				D4BC9C9319B566290091552D /* Destructuring.swift in Sources */,
 				D471DD5719AEAD0F00741E82 /* Either.swift in Sources */,
 				D46F179119AC22630054B51D /* 3.swift in Sources */,
 				D471DD5519AEACDA00741E82 /* Parsing.swift in Sources */,
@@ -295,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4BC9C9119B560EC0091552D /* Printing.swift in Sources */,
+				D4BC9C9419B566330091552D /* Destructuring.swift in Sources */,
 				D4BC9C8619B52EE90091552D /* main.swift in Sources */,
 				D4BC9C8A19B52EF60091552D /* 3.swift in Sources */,
 				D4BC9C8B19B52EF90091552D /* Parsing.swift in Sources */,
