@@ -24,6 +24,14 @@ public enum Term : Equatable {
 		default: return false
 		}
 	}
+
+	var numeric: Bool {
+		switch self.destructure() {
+		case .Zero: return true
+		case let .Successor(term): return term.numeric
+		default: return false
+		}
+	}
 }
 
 /// Equality over terms.
