@@ -9,6 +9,15 @@ extension Term : BooleanType {
 	}
 }
 
+extension Optional {
+	func bind<U>(f: T -> U?) -> U? {
+		switch self {
+		case let .Some(x): return f(x)
+		case .None: return nil
+		}
+	}
+}
+
 public func eval(term: Term) -> Term {
 	switch term.destructure() {
 	case let .Successor(x): return .Successor(Box(eval(x))) // E-Succ
