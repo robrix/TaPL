@@ -1,6 +1,6 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-import Foundation
+import Darwin
 
 func readline(handle: UnsafeMutablePointer<FILE>) -> String? {
 	let getNonNewline: () -> CChar? = {
