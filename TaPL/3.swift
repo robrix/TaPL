@@ -32,6 +32,14 @@ public enum Term : Equatable {
 		default: return false
 		}
 	}
+
+	var value: Bool {
+		switch self {
+		case .True, .False: return true
+		case let term where term.numeric: return true
+		default: return false
+		}
+	}
 }
 
 /// Equality over terms.
