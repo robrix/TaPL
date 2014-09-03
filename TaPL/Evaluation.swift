@@ -18,7 +18,7 @@ public func eval(term: Term) -> Term {
 	case let .Predecessor(x): return eval(.Predecessor(Box(eval(x)))) // E-Pred
 
 	case .IsZero(.Zero): return .True // E-IsZeroZero
-	case .IsZero(.Successor): return .False // E-IsZeroSucc
+	case let .IsZero(.Successor(x)) where x.value.numeric: return .False // E-IsZeroSucc
 	case let .IsZero(x): return eval(.IsZero(Box(eval(x)))) // E-IsZero
 
 	case let .If(.True, x, _): return eval(x) // E-IfTrue
