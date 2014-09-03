@@ -20,7 +20,11 @@ while let line = prompt() {
 	if line == ":exit" { break }
 
 	if let (term, rest) = parseTerm(input: line) {
-		println(eval(term))
+		if let value = eval(term) {
+			println(value)
+		} else {
+			println("stuck")
+		}
 	} else {
 		println("onoes")
 	}
