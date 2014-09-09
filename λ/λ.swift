@@ -16,6 +16,7 @@ public func == (lhs: Term, rhs: Term) -> Bool {
 
 
 
+// fixme: file a radar about the deadlock here
 public let parseWhitespace = ignore(literal(" ")*)
 public let parseVariableTerm = parseVariable --> { Term.Variable($0) }
 public let parseTerm: Combinator<Term>.FunctionType = parseVariableTerm | parseAbstraction | parseApplication
