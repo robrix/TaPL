@@ -26,7 +26,10 @@
 		D4BC9C9119B560EC0091552D /* Printing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C8F19B560CA0091552D /* Printing.swift */; };
 		D4BC9C9319B566290091552D /* Destructuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C9219B566290091552D /* Destructuring.swift */; };
 		D4BC9C9419B566330091552D /* Destructuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C9219B566290091552D /* Destructuring.swift */; };
+		D4DE91EE19B9872F004F6D8E /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
+		D4DE91EF19B9873B004F6D8E /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5619AEAD0F00741E82 /* Either.swift */; };
 		D4E4059419B7D4550086E59B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4059319B7D4550086E59B /* main.swift */; };
+		D4E4059B19B7EA910086E59B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -369,8 +372,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DE91EE19B9872F004F6D8E /* Parsing.swift in Sources */,
+				D4E4059B19B7EA910086E59B /* Box.swift in Sources */,
 				D4E4059419B7D4550086E59B /* main.swift in Sources */,
 				D49701AE19BEE03A005D74EC /* REPL.swift in Sources */,
+				D4DE91EF19B9873B004F6D8E /* Either.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
