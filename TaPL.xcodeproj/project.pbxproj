@@ -29,6 +29,7 @@
 		D4DE91EE19B9872F004F6D8E /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
 		D4DE91EF19B9873B004F6D8E /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5619AEAD0F00741E82 /* Either.swift */; };
 		D4E4059419B7D4550086E59B /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4059319B7D4550086E59B /* main.swift */; };
+		D4E4059A19B7D4DC0086E59B /* λ.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4059919B7D4DC0086E59B /* λ.swift */; };
 		D4E4059B19B7EA910086E59B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		D4BC9C9219B566290091552D /* Destructuring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Destructuring.swift; sourceTree = "<group>"; };
 		D4E4059119B7D4550086E59B /* λ */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "λ"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E4059319B7D4550086E59B /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D4E4059919B7D4DC0086E59B /* λ.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "λ.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				D4E4059319B7D4550086E59B /* main.swift */,
+				D4E4059919B7D4DC0086E59B /* λ.swift */,
 			);
 			path = "λ";
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				D4DE91EE19B9872F004F6D8E /* Parsing.swift in Sources */,
 				D4E4059B19B7EA910086E59B /* Box.swift in Sources */,
 				D4E4059419B7D4550086E59B /* main.swift in Sources */,
+				D4E4059A19B7D4DC0086E59B /* λ.swift in Sources */,
 				D49701AE19BEE03A005D74EC /* REPL.swift in Sources */,
 				D4DE91EF19B9873B004F6D8E /* Either.swift in Sources */,
 			);
