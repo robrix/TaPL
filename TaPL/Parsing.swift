@@ -7,7 +7,7 @@ struct Combinator<Term> {
 
 
 /// Constructs a literal parser for `string`.
-func literal(string: String)(input: String) -> (String, String)? {
+func literal(string: String)(input: String) -> (term: String, rest: String)? {
 	if startsWith(input, string) {
 		return (string, input[advance(input.startIndex, countElements(string))..<input.endIndex])
 	}
