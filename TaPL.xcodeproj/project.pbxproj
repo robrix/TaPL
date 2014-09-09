@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D46F177D19AC21A40054B51D /* TaPL.h in Headers */ = {isa = PBXBuildFile; fileRef = D46F177C19AC21A40054B51D /* TaPL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D46F178719AC21A40054B51D /* TaPLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F178619AC21A40054B51D /* TaPLTests.swift */; };
-		D46F179119AC22630054B51D /* 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179019AC22630054B51D /* 3.swift */; };
 		D46F179319AC22AF0054B51D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
 		D471DD5519AEACDA00741E82 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
 		D471DD5719AEAD0F00741E82 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5619AEAD0F00741E82 /* Either.swift */; };
@@ -58,7 +57,7 @@
 		D46F178219AC21A40054B51D /* TaPLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaPLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46F178519AC21A40054B51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D46F178619AC21A40054B51D /* TaPLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaPLTests.swift; sourceTree = "<group>"; };
-		D46F179019AC22630054B51D /* 3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = 3.swift; sourceTree = "<group>"; };
+		D46F179019AC22630054B51D /* 3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = 3.swift; path = ../TaPL/3.swift; sourceTree = "<group>"; };
 		D46F179219AC22AF0054B51D /* Box.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		D471DD5419AEACDA00741E82 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		D471DD5619AEAD0F00741E82 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
@@ -130,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				D46F177C19AC21A40054B51D /* TaPL.h */,
-				D46F179019AC22630054B51D /* 3.swift */,
 				D471DD5819AEB95000741E82 /* Evaluation.swift */,
 				D4BC9C8F19B560CA0091552D /* Printing.swift */,
 				D471DD5419AEACDA00741E82 /* Parsing.swift */,
@@ -171,6 +169,7 @@
 		D4BC9C8419B52EE90091552D /* repl-3 */ = {
 			isa = PBXGroup;
 			children = (
+				D46F179019AC22630054B51D /* 3.swift */,
 				D4BC9C8519B52EE90091552D /* main.swift */,
 			);
 			path = "repl-3";
@@ -335,7 +334,6 @@
 				D4BC9C9019B560CA0091552D /* Printing.swift in Sources */,
 				D4BC9C9319B566290091552D /* Destructuring.swift in Sources */,
 				D471DD5719AEAD0F00741E82 /* Either.swift in Sources */,
-				D46F179119AC22630054B51D /* 3.swift in Sources */,
 				D471DD5519AEACDA00741E82 /* Parsing.swift in Sources */,
 				D46F179319AC22AF0054B51D /* Box.swift in Sources */,
 				D49701AC19BEE022005D74EC /* REPL.swift in Sources */,
