@@ -114,3 +114,18 @@ func | <T>(lhs: Combinator<T>.FunctionType, rhs: Combinator<T>.FunctionType)(inp
 	if let (parsed, rest) = rhs(input: input) { return (parsed, rest) }
 	return nil
 }
+
+
+// MARK: Fixpoint
+
+/// Constructs `combinator` with a fixpoint, enabling recursive (i.e. context-free) grammars.
+func fix<T, U>(body: () -> T -> U) -> T -> U {
+	var _fixed: (T -> U)!
+	if let fixed = _fixed { return fixed }
+
+	_fixed = { x in
+		_fixed = body()
+		return _fixed(x)
+	}
+	return _fixed
+}
