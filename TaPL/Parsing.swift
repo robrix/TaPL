@@ -16,12 +16,15 @@ func literal(string: String)(input: String) -> (term: String, rest: String)? {
 
 
 /// Constructs a parser for any character in `string`.
-func parseSet(string: String) -> Combinator<String>.FunctionType {
-	func empty(input: String) -> (term: String, rest: String)? { return nil }
-
-	// fixme: file a radar about how just returning this fails to typecheck, but binding the constant—even tho not type-annotated—succeeds
-	let reduced = reduce(string, empty) { into, each in into | literal(String(each)) }
-	return reduced
+func characterSet(string: String) -> Combinator<String>.FunctionType {
+	return { input in
+		if input.startIndex == input.endIndex { return nil }
+		if contains(string, input[input.startIndex]) {
+			let advanced = advance(input.startIndex, 1)
+			return (input[input.startIndex..<advanced], input[advanced..<input.endIndex])
+		}
+		return nil
+	}
 }
 
 
