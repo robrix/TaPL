@@ -21,4 +21,13 @@ enum NamelessTerm {
 		case let .Application(t, u): return Application(Box(t.value.shift(d, cutoff: c)), Box(u.value.shift(d, cutoff: c)))
 		}
 	}
+
+	func substitute(s: NamelessTerm, forIndex j: Int) -> NamelessTerm {
+		switch self {
+		case let .Index(k) where k == j: return s
+		case let .Index(k): return self
+		case let .Abstraction(t): return .Abstraction(Box(t.value.substitute(s.shift(1), forIndex: j + 1)))
+		case let .Application(t, u): return .Application(Box(t.value.substitute(s, forIndex: j)), Box(u.value.substitute(s, forIndex: j)))
+		}
+	}
 }
