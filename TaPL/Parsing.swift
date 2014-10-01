@@ -7,11 +7,24 @@ struct Combinator<Term> {
 
 
 /// Constructs a literal parser for `string`.
-func literal(string: String)(input: String) -> (String, String)? {
+func literal(string: String)(input: String) -> (term: String, rest: String)? {
 	if startsWith(input, string) {
 		return (string, input[advance(input.startIndex, countElements(string))..<input.endIndex])
 	}
 	return nil
+}
+
+
+/// Constructs a parser for any character in `string`.
+func characterSet(string: String) -> Combinator<String>.FunctionType {
+	return { input in
+		if input.startIndex == input.endIndex { return nil }
+		if contains(string, input[input.startIndex]) {
+			let advanced = advance(input.startIndex, 1)
+			return (input[input.startIndex..<advanced], input[advanced..<input.endIndex])
+		}
+		return nil
+	}
 }
 
 
@@ -100,4 +113,19 @@ func | <T>(lhs: Combinator<T>.FunctionType, rhs: Combinator<T>.FunctionType)(inp
 	if let (parsed, rest) = lhs(input: input) { return (parsed, rest) }
 	if let (parsed, rest) = rhs(input: input) { return (parsed, rest) }
 	return nil
+}
+
+
+// MARK: Fixpoint
+
+/// Constructs `combinator` with a fixpoint, enabling recursive (i.e. context-free) grammars.
+func fix<T, U>(body: () -> T -> U) -> T -> U {
+	var _fixed: (T -> U)!
+	if let fixed = _fixed { return fixed }
+
+	_fixed = { x in
+		_fixed = body()
+		return _fixed(x)
+	}
+	return _fixed
 }
