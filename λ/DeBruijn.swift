@@ -2,6 +2,6 @@
 
 enum NamelessTerm {
 	case Index(Int)
-	case Abstraction(Box<Term>)
-	case Application(Box<Term>, Box<Term>)
+	case Abstraction(Box<NamelessTerm>)
+	case Application(Box<NamelessTerm>, Box<NamelessTerm>)
 }
