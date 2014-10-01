@@ -12,4 +12,13 @@ enum NamelessTerm {
 		case let .Application(t, u): return "\(t.value) \(u.value)"
 		}
 	}
+
+	func shift(d: Int, cutoff c: Int = 0) -> NamelessTerm {
+		switch self {
+		case let .Index(k) where k < c: return self
+		case let .Index(k): return Index(k + d)
+		case let .Abstraction(t): return Abstraction(Box(t.value.shift(d, cutoff: c + 1)))
+		case let .Application(t, u): return Application(Box(t.value.shift(d, cutoff: c)), Box(u.value.shift(d, cutoff: c)))
+		}
+	}
 }
