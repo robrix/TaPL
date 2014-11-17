@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D4417CD81A1ABA2C00195AD3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417CD71A1ABA2C00195AD3 /* main.swift */; };
 		D46F177D19AC21A40054B51D /* TaPL.h in Headers */ = {isa = PBXBuildFile; fileRef = D46F177C19AC21A40054B51D /* TaPL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D46F178719AC21A40054B51D /* TaPLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F178619AC21A40054B51D /* TaPLTests.swift */; };
 		D46F179319AC22AF0054B51D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
@@ -34,6 +35,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		D4417CD31A1ABA2C00195AD3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		D4BC9C8119B52EE90091552D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -55,6 +65,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D4417CD51A1ABA2C00195AD3 /* simple */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simple; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4417CD71A1ABA2C00195AD3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D46F177719AC21A40054B51D /* TaPL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TaPL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46F177B19AC21A40054B51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D46F177C19AC21A40054B51D /* TaPL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaPL.h; sourceTree = "<group>"; };
@@ -77,6 +89,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D4417CD21A1ABA2C00195AD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D46F177319AC21A40054B51D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -108,6 +127,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4417CD61A1ABA2C00195AD3 /* simple */ = {
+			isa = PBXGroup;
+			children = (
+				D4417CD71A1ABA2C00195AD3 /* main.swift */,
+			);
+			path = simple;
+			sourceTree = "<group>";
+		};
 		D46F176D19AC21A40054B51D = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +142,7 @@
 				D46F178319AC21A40054B51D /* TaPLTests */,
 				D4BC9C8419B52EE90091552D /* repl-3 */,
 				D4E4059219B7D4550086E59B /* λ */,
+				D4417CD61A1ABA2C00195AD3 /* simple */,
 				D46F177819AC21A40054B51D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,6 +154,7 @@
 				D46F178219AC21A40054B51D /* TaPLTests.xctest */,
 				D4BC9C8319B52EE90091552D /* repl-3 */,
 				D4E4059119B7D4550086E59B /* λ */,
+				D4417CD51A1ABA2C00195AD3 /* simple */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +232,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		D4417CD41A1ABA2C00195AD3 /* simple */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4417CDB1A1ABA2C00195AD3 /* Build configuration list for PBXNativeTarget "simple" */;
+			buildPhases = (
+				D4417CD11A1ABA2C00195AD3 /* Sources */,
+				D4417CD21A1ABA2C00195AD3 /* Frameworks */,
+				D4417CD31A1ABA2C00195AD3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = simple;
+			productName = simple;
+			productReference = D4417CD51A1ABA2C00195AD3 /* simple */;
+			productType = "com.apple.product-type.tool";
+		};
 		D46F177619AC21A40054B51D /* TaPL */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D46F178A19AC21A40054B51D /* Build configuration list for PBXNativeTarget "TaPL" */;
@@ -281,6 +327,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Rob Rix";
 				TargetAttributes = {
+					D4417CD41A1ABA2C00195AD3 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
 					D46F177619AC21A40054B51D = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -311,6 +360,7 @@
 				D46F178119AC21A40054B51D /* TaPLTests */,
 				D4BC9C8219B52EE90091552D /* repl-3 */,
 				D4E4059019B7D4550086E59B /* λ */,
+				D4417CD41A1ABA2C00195AD3 /* simple */,
 			);
 		};
 /* End PBXProject section */
@@ -333,6 +383,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D4417CD11A1ABA2C00195AD3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4417CD81A1ABA2C00195AD3 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D46F177219AC21A40054B51D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +445,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		D4417CD91A1ABA2C00195AD3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D4417CDA1A1ABA2C00195AD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		D46F178819AC21A40054B51D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -578,6 +656,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D4417CDB1A1ABA2C00195AD3 /* Build configuration list for PBXNativeTarget "simple" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4417CD91A1ABA2C00195AD3 /* Debug */,
+				D4417CDA1A1ABA2C00195AD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		D46F177119AC21A40054B51D /* Build configuration list for PBXProject "TaPL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
