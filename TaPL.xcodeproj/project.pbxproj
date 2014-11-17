@@ -12,7 +12,6 @@
 		D4417CDD1A1ABA7300195AD3 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
 		D4417CDE1A1ABA7600195AD3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5619AEAD0F00741E82 /* Either.swift */; };
 		D4417CDF1A1ABA8100195AD3 /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
-		D4417CE01A1ABAD000195AD3 /* λ.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E4059919B7D4DC0086E59B /* λ.swift */; };
 		D46F177D19AC21A40054B51D /* TaPL.h in Headers */ = {isa = PBXBuildFile; fileRef = D46F177C19AC21A40054B51D /* TaPL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D46F178719AC21A40054B51D /* TaPLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F178619AC21A40054B51D /* TaPLTests.swift */; };
 		D46F179319AC22AF0054B51D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
@@ -395,7 +394,6 @@
 				D4417CDE1A1ABA7600195AD3 /* Either.swift in Sources */,
 				D4417CDD1A1ABA7300195AD3 /* Box.swift in Sources */,
 				D4417CDC1A1ABA7300195AD3 /* Parsing.swift in Sources */,
-				D4417CE01A1ABAD000195AD3 /* λ.swift in Sources */,
 				D4417CDF1A1ABA8100195AD3 /* REPL.swift in Sources */,
 				D4417CD81A1ABA2C00195AD3 /* main.swift in Sources */,
 			);
