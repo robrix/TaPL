@@ -12,6 +12,7 @@
 		D4417CDD1A1ABA7300195AD3 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
 		D4417CDE1A1ABA7600195AD3 /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5619AEAD0F00741E82 /* Either.swift */; };
 		D4417CDF1A1ABA8100195AD3 /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
+		D4417CE21A1ABB8500195AD3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417CE11A1ABB8500195AD3 /* Type.swift */; };
 		D46F177D19AC21A40054B51D /* TaPL.h in Headers */ = {isa = PBXBuildFile; fileRef = D46F177C19AC21A40054B51D /* TaPL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D46F178719AC21A40054B51D /* TaPLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F178619AC21A40054B51D /* TaPLTests.swift */; };
 		D46F179319AC22AF0054B51D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179219AC22AF0054B51D /* Box.swift */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		D4417CD51A1ABA2C00195AD3 /* simple */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simple; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4417CD71A1ABA2C00195AD3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D4417CE11A1ABB8500195AD3 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		D46F177719AC21A40054B51D /* TaPL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TaPL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D46F177B19AC21A40054B51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D46F177C19AC21A40054B51D /* TaPL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaPL.h; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D4417CD71A1ABA2C00195AD3 /* main.swift */,
+				D4417CE11A1ABB8500195AD3 /* Type.swift */,
 			);
 			path = simple;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				D4417CDE1A1ABA7600195AD3 /* Either.swift in Sources */,
 				D4417CDD1A1ABA7300195AD3 /* Box.swift in Sources */,
 				D4417CDC1A1ABA7300195AD3 /* Parsing.swift in Sources */,
+				D4417CE21A1ABB8500195AD3 /* Type.swift in Sources */,
 				D4417CDF1A1ABA8100195AD3 /* REPL.swift in Sources */,
 				D4417CD81A1ABA2C00195AD3 /* main.swift in Sources */,
 			);
