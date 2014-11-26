@@ -2,3 +2,6 @@
 
 // Simply typed λ calculus, ch 9.
 
+let index = %0
+let application = index • index
+let abstraction = lambda(application)
