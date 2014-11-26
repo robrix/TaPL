@@ -5,3 +5,7 @@ enum Type {
 	case Function(Box<Type>, Box<Type>)
 }
 
+func --> (lhs: Type, rhs: Type) -> Type {
+	return .Function(Box(lhs), Box(rhs))
+}
+
