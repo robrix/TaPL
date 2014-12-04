@@ -21,7 +21,7 @@ enum Type: Equatable, Printable {
 		case .Bool:
 			return "Bool"
 		case let .Function(t, u):
-			return "\(t.value.description) → \(u.value.description)"
+			return "(\(t.value.description) → \(u.value.description))"
 		}
 	}
 }
