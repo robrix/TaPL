@@ -9,7 +9,7 @@ func --> (lhs: Type, rhs: Type) -> Type {
 	return .Function(Box(lhs), Box(rhs))
 }
 
-func typeof<Info>(term: Term<Info>, context: [(Int, Type)] = []) -> Type {
+func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 	switch term {
 	case .True, .False:
 		return .Bool
