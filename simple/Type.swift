@@ -9,3 +9,6 @@ func --> (lhs: Type, rhs: Type) -> Type {
 	return .Function(Box(lhs), Box(rhs))
 }
 
+func typeof<Info>(term: Term<Info>) -> Type {
+	return Type.Bool
+}
