@@ -1,6 +1,6 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-enum Type: Equatable {
+enum Type: Equatable, Printable {
 	case Bool
 	case Function(Box<Type>, Box<Type>)
 
@@ -12,7 +12,20 @@ enum Type: Equatable {
 			return nil
 		}
 	}
+
+
+	// MARK: Printable
+
+	var description: String {
+		switch self {
+		case .Bool:
+			return "Bool"
+		case let .Function(t, u):
+			return "\(t.value.description) → \(u.value.description)"
+		}
+	}
 }
+
 
 func --> (lhs: Type, rhs: Type) -> Type {
 	return .Function(Box(lhs), Box(rhs))
