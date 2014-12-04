@@ -16,6 +16,19 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 	switch term {
 	case .True, .False:
 		return .Bool
+	case let .If(_, condition, then, otherwise):
+		let conditionType = recur(condition)
+		if conditionType == .Bool {
+			let (thenType, elseType) = (recur(then), recur(otherwise))
+			if thenType == elseType {
+				return thenType
+			} else {
+				println("error: branches had inequal types: \(thenType) != \(elseType)")
+			}
+		} else {
+			println("error: condition had type \(conditionType) instead of Bool")
+		}
+		return .Bool
 	default:
 		println("error: no idea what this is, let’s just call it Bool")
 		return .Bool
