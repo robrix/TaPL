@@ -3,5 +3,5 @@
 // Simply typed λ calculus, ch 9.
 
 let index = %0
-let application = index • index
-let abstraction = lambda(application)
+let application = index • %true
+let abstraction = lambda(.Function(Box(.Bool), Box(.Bool)), application)

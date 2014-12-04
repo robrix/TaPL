@@ -15,8 +15,8 @@ prefix func %(x: Int) -> Term<()> {
 	return Term.Index(Box(()), x)
 }
 
-func lambda(x: Term<()>) -> Term<()> {
-	return Term.Abstraction(Box(()), Box(x))
+func lambda(t: Type, x: Term<()>) -> Term<()> {
+	return Term.Abstraction(Box(()), t, Box(x))
 }
 
 
@@ -25,6 +25,6 @@ enum Term<Info> {
 	case False(Box<Info>)
 	case If(Box<Info>, Box<Term>, Box<Term>, Box<Term>)
 	case Index(Box<Info>, Int)
-	case Abstraction(Box<Info>, Box<Term>)
+	case Abstraction(Box<Info>, Type, Box<Term>)
 	case Application(Box<Info>, Box<Term>, Box<Term>)
 }
