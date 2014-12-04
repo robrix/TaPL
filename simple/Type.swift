@@ -3,6 +3,15 @@
 enum Type: Equatable {
 	case Bool
 	case Function(Box<Type>, Box<Type>)
+
+	var functionType: (Type, Type)? {
+		switch self {
+		case let .Function(t, u):
+			return (t.value, u.value)
+		default:
+			return nil
+		}
+	}
 }
 
 func --> (lhs: Type, rhs: Type) -> Type {
