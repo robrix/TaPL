@@ -23,6 +23,9 @@
 		D49701AC19BEE022005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
 		D49701AD19BEE03A005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
 		D49701AE19BEE03A005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
+		D4BA51FE1A2FF3D500D52BF6 /* Either.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA51FD1A2FF3D500D52BF6 /* Either.framework */; };
+		D4BA52001A2FF3F500D52BF6 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA51FF1A2FF3F500D52BF6 /* Box.framework */; };
+		D4BA52021A2FF40700D52BF6 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA52011A2FF40700D52BF6 /* Prelude.framework */; };
 		D4BC9C8619B52EE90091552D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C8519B52EE90091552D /* main.swift */; };
 		D4BC9C8A19B52EF60091552D /* 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179019AC22630054B51D /* 3.swift */; };
 		D4BC9C8B19B52EF90091552D /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
@@ -87,6 +90,9 @@
 		D471DD5619AEAD0F00741E82 /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		D471DD5819AEB95000741E82 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		D49701AB19BEE022005D74EC /* REPL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REPL.swift; sourceTree = "<group>"; };
+		D4BA51FD1A2FF3D500D52BF6 /* Either.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Either.framework; path = "../../../../Library/Developer/Xcode/DerivedData/TaPL-emptkooauawhvufggwcimjqdoyuj/Build/Products/Debug/Either.framework"; sourceTree = "<group>"; };
+		D4BA51FF1A2FF3F500D52BF6 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Box.framework; path = External/Either/External/Box/build/Debug/Box.framework; sourceTree = "<group>"; };
+		D4BA52011A2FF40700D52BF6 /* Prelude.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Prelude.framework; path = "../../../../Library/Developer/Xcode/DerivedData/TaPL-emptkooauawhvufggwcimjqdoyuj/Build/Products/Debug/Prelude.framework"; sourceTree = "<group>"; };
 		D4BC9C8319B52EE90091552D /* repl-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "repl-3"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BC9C8519B52EE90091552D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D4BC9C8F19B560CA0091552D /* Printing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printing.swift; sourceTree = "<group>"; };
@@ -129,6 +135,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4BA51FE1A2FF3D500D52BF6 /* Either.framework in Frameworks */,
+				D4BA52001A2FF3F500D52BF6 /* Box.framework in Frameworks */,
+				D4BA52021A2FF40700D52BF6 /* Prelude.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +162,9 @@
 				D4BC9C8419B52EE90091552D /* repl-3 */,
 				D4E4059219B7D4550086E59B /* λ */,
 				D4417CD61A1ABA2C00195AD3 /* simple */,
+				D4BA52011A2FF40700D52BF6 /* Prelude.framework */,
+				D4BA51FF1A2FF3F500D52BF6 /* Box.framework */,
+				D4BA51FD1A2FF3D500D52BF6 /* Either.framework */,
 				D46F177819AC21A40054B51D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -679,6 +691,7 @@
 				D4417CDA1A1ABA2C00195AD3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D46F177119AC21A40054B51D /* Build configuration list for PBXProject "TaPL" */ = {
 			isa = XCConfigurationList;
