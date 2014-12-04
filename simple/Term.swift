@@ -28,3 +28,8 @@ enum Term<Info> {
 	case Abstraction(Box<Info>, Type, Box<Term>)
 	case Application(Box<Info>, Box<Term>, Box<Term>)
 }
+
+
+// MARK: Import
+
+import Box
