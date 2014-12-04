@@ -7,6 +7,10 @@ func • (lhs: Term<()>, rhs: Term<()>) -> Term<()> {
 
 prefix operator % {}
 
+prefix func %(x: Bool) -> Term<()> {
+	return x ? Term.True(Box(())) : Term.False(Box(()))
+}
+
 prefix func %(x: Int) -> Term<()> {
 	return Term.Index(Box(()), x)
 }
