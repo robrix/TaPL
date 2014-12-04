@@ -35,6 +35,9 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 	case let .Index(_, i):
 		return context[i].1
 
+	case let .Abstraction(_, t, v):
+		return t --> typeof(v.value, context: context + [(context.count, t)])
+
 	default:
 		println("error: no idea what this is, let’s just call it Bool")
 		return .Bool
