@@ -47,8 +47,17 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 	case let .Abstraction(_, t, v):
 		return t --> typeof(v.value, context: context + [(context.count, t)])
 
-	default:
-		println("error: no idea what this is, let’s just call it Bool")
+	case let .Application(_, a, b):
+		if let (parameterType, returnType) = recur(a).functionType {
+			let argumentType = recur(b)
+			if parameterType == argumentType {
+				return returnType
+			} else {
+				print("error: argument had type \(argumentType) instead of expected type \(parameterType)")
+			}
+		} else {
+			println("error: \(a) is not of function type")
+		}
 		return .Bool
 	}
 }
