@@ -6,6 +6,6 @@ let index = %0
 let application = index • %true
 let abstraction = lambda(.Bool --> .Bool, application)
 
-let identity = lambda(.Bool --> .Bool, %0)
+let identity = lambda(.Bool, %0)
 
 let result = abstraction • identity
