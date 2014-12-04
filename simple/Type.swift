@@ -32,6 +32,9 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 		}
 		return .Bool
 
+	case let .Index(_, i):
+		return context[i].1
+
 	default:
 		println("error: no idea what this is, let’s just call it Bool")
 		return .Bool
