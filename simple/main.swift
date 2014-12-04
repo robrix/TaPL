@@ -9,3 +9,5 @@ let abstraction = lambda(.Bool --> .Bool, application)
 let identity = lambda(.Bool, %0)
 
 let result = abstraction • identity
+
+println(typeof(result))
