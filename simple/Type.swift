@@ -13,9 +13,11 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 	let recur: Box<Term<()>> -> Type = { term in
 		typeof(term.value, context: context)
 	}
+
 	switch term {
 	case .True, .False:
 		return .Bool
+
 	case let .If(_, condition, then, otherwise):
 		let conditionType = recur(condition)
 		if conditionType == .Bool {
@@ -29,6 +31,7 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 			println("error: condition had type \(conditionType) instead of Bool")
 		}
 		return .Bool
+
 	default:
 		println("error: no idea what this is, let’s just call it Bool")
 		return .Bool
