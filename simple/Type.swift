@@ -17,7 +17,7 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
 	case .True, .False:
 		return .Bool
 	default:
-		println("no idea what this is, let’s just call it Bool")
+		println("error: no idea what this is, let’s just call it Bool")
 		return .Bool
 	}
 }
