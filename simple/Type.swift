@@ -31,18 +31,13 @@ func --> (lhs: Type, rhs: Type) -> Type {
 	return .Function(Box(lhs), Box(rhs))
 }
 
-extension Either {
-	func map<V>(f: U -> V) -> Either<T, V> {
-		return either(Either<T, V>.left, f >>> Either<T, V>.right)
-	}
-}
 
 infix operator ** {}
 func ** <T, U>(left: Either<T, U>, right: Either<T, U>) -> Either<T, (U, U)> {
 	return left.either(Either<T, (U, U)>.left, { x in
-		right.map { y in
-			(x, y)
-		}
+		right.either(Either.left, { y in
+			.right(x, y)
+		})
 	})
 }
 
@@ -70,9 +65,9 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Either<String, Type>
 		return .right(context[i].1)
 
 	case let .Abstraction(_, t, v):
-		return typeof(v.value, context: context + [(context.count, t)]).map {
-			t --> $0
-		}
+		return typeof(v.value, context: context + [(context.count, t)]).either(Either.left, {
+			.right(t --> $0)
+		})
 
 	case let .Application(_, a, b):
 		return recur(a).either(Either.left, {
