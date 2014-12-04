@@ -10,6 +10,9 @@ func --> (lhs: Type, rhs: Type) -> Type {
 }
 
 func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Type {
+	let recur: Box<Term<()>> -> Type = { term in
+		typeof(term.value, context: context)
+	}
 	switch term {
 	case .True, .False:
 		return .Bool
