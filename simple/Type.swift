@@ -10,7 +10,13 @@ func --> (lhs: Type, rhs: Type) -> Type {
 }
 
 func typeof<Info>(term: Term<Info>, context: [(Int, Type)] = []) -> Type {
-	return Type.Bool
+	switch term {
+	case .True, .False:
+		return .Bool
+	default:
+		println("no idea what this is, let’s just call it Bool")
+		return .Bool
+	}
 }
 
 
