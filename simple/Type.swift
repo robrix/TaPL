@@ -58,7 +58,7 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Either<String, Type>
 	case let .If(_, condition, then, otherwise):
 		return recur(condition).either(Either.left, { conditionType in
 			conditionType == .Bool ?
-				((recur(then) ** recur(otherwise))).either(Either.left, { thenType, elseType in
+				(recur(then) ** recur(otherwise)).either(Either.left, { thenType, elseType in
 					thenType == elseType ?
 						.right(thenType)
 					:	.left("error: branches had inequal types: \(thenType) != \(elseType)")
