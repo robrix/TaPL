@@ -4,4 +4,4 @@
 
 let index = %0
 let application = index • %true
-let abstraction = lambda(.Function(Box(.Bool), Box(.Bool)), application)
+let abstraction = lambda(.Bool --> .Bool, application)
