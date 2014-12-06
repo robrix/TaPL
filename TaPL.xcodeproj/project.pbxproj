@@ -19,6 +19,9 @@
 		D49701AC19BEE022005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
 		D49701AD19BEE03A005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
 		D49701AE19BEE03A005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
+		D49749E31A33A7C5006813CC /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA52011A2FF40700D52BF6 /* Prelude.framework */; };
+		D49749E41A33A7C5006813CC /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA51FF1A2FF3F500D52BF6 /* Box.framework */; };
+		D49749E51A33A7C5006813CC /* Either.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA51FD1A2FF3D500D52BF6 /* Either.framework */; };
 		D4BA51FE1A2FF3D500D52BF6 /* Either.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA51FD1A2FF3D500D52BF6 /* Either.framework */; };
 		D4BA52001A2FF3F500D52BF6 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA51FF1A2FF3F500D52BF6 /* Box.framework */; };
 		D4BA52021A2FF40700D52BF6 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BA52011A2FF40700D52BF6 /* Prelude.framework */; };
@@ -97,6 +100,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D49749E31A33A7C5006813CC /* Prelude.framework in Frameworks */,
+				D49749E41A33A7C5006813CC /* Box.framework in Frameworks */,
+				D49749E51A33A7C5006813CC /* Either.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
