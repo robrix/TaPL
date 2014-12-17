@@ -20,6 +20,7 @@ func lambda(t: Type, x: Term<()>) -> Term<()> {
 }
 
 
+/// Nameless (De Bruijn-indexed) terms.
 enum Term<Info> {
 	case True(Box<Info>)
 	case False(Box<Info>)
