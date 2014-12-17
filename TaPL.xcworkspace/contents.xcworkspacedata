@@ -5,10 +5,13 @@
       location = "container:TaPL.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:External/Either/External/Box/Box.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:External/Either/Either.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:External/Either/External/Box/Box.xcodeproj">
+      location = "group:External/Madness/Madness.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:External/Either/External/Prelude/Prelude.xcodeproj">
