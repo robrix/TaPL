@@ -15,7 +15,6 @@
 		D4417CDF1A1ABA8100195AD3 /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
 		D4417CE21A1ABB8500195AD3 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417CE11A1ABB8500195AD3 /* Type.swift */; };
 		D4417CE41A1AC10800195AD3 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4417CE31A1AC10800195AD3 /* Term.swift */; };
-		D4417CE51A1AC2C400195AD3 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
 		D46F177D19AC21A40054B51D /* TaPL.h in Headers */ = {isa = PBXBuildFile; fileRef = D46F177C19AC21A40054B51D /* TaPL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D46F178719AC21A40054B51D /* TaPLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F178619AC21A40054B51D /* TaPLTests.swift */; };
 		D471DD5519AEACDA00741E82 /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
@@ -401,7 +400,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4417CE51A1AC2C400195AD3 /* Parsing.swift in Sources */,
 				D4417CE21A1ABB8500195AD3 /* Type.swift in Sources */,
 				D4417CE41A1AC10800195AD3 /* Term.swift in Sources */,
 				D4417CDF1A1ABA8100195AD3 /* REPL.swift in Sources */,

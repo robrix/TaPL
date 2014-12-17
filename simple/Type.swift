@@ -26,6 +26,7 @@ enum Type: Equatable, Printable {
 	}
 }
 
+infix operator --> {}
 
 func --> (lhs: Type, rhs: Type) -> Type {
 	return .Function(Box(lhs), Box(rhs))
@@ -101,4 +102,5 @@ func == (left: Type, right: Type) -> Bool {
 
 import Box
 import Either
+import Madness
 import Prelude
