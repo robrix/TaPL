@@ -5,7 +5,7 @@ let boolean: Parser<Type>.Function = %"Bool" --> const(Type.Bool)
 let function: Parser<Type>.Function = ignore("(") ++ type ++ ignore("->") ++ type ++ ignore(")") --> { Type.Function(Box($0), Box($1)) }
 let type: Parser<Type>.Function = boolean | function
 
-let term: Parser<Term<()>>.Function = fix { term in
+let parseTerm: Parser<Term<()>>.Function = fix { term in
 	let variable = digit --> { Term.Index(Box(()), $0) }
 	let abstraction = ignore("λ") ++ type ++ ignore(".") ++ term --> { Term.Abstraction(Box(()), $0, Box($1)) }
 	let application = ignore("(") ++ term ++ ignore(" ") ++ term ++ ignore(")") --> { Term.Application(Box(()), Box($0), Box($1)) }
