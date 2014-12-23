@@ -59,6 +59,10 @@ func shift<Info>(term: Term<Info>, by: Int, above: Int = 0) -> Term<Info> {
 }
 
 
+func substitute<Info>(term: Term<Info>, inTerm: Term<Info>) -> Term<Info> {
+	return shift(substitute(shift(term, 1), 0, inTerm), -1)
+}
+
 func substitute<Info>(term: Term<Info>, forIndex: Int, inTerm: Term<Info>) -> Term<Info> {
 	return map(inTerm, forIndex) { info, index, n in
 		n == index ? shift(term, index) : .Index(Box(info), n)
