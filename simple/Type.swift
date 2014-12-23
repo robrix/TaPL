@@ -1,7 +1,11 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 enum Type: Equatable, Printable {
+	// MARK: Base types
+
 	case Bool
+	case String
+	case Integer
 	case Unit
 
 	case Function(Box<Type>, Box<Type>)
@@ -18,12 +22,15 @@ enum Type: Equatable, Printable {
 
 	// MARK: Printable
 
-	var description: String {
+	var description: Swift.String {
 		switch self {
 		case Bool:
 			return "Bool"
-
-		case .Unit:
+		case String:
+			return "String"
+		case Integer:
+			return "Integer"
+		case Unit:
 			return "Unit"
 
 		case let Function(t, u):
