@@ -35,7 +35,7 @@ func --> (lhs: Type, rhs: Type) -> Type {
 
 infix operator ** {}
 func ** <T, U>(left: Either<T, U>, right: Either<T, U>) -> Either<T, (U, U)> {
-	return left.either(Either<T, (U, U)>.left, { x in
+	return left.either(Either.left, { x in
 		right.either(Either.left, { y in
 			.right(x, y)
 		})
