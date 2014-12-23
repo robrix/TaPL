@@ -132,7 +132,22 @@ func map<Info>(term: Term<Info>, c: Int, f: (Info, Int, Int) -> Term<Info>) -> T
 }
 
 
+func evalStep<Info>(term: Term<Info>) -> Either<Term<Info>, Term<Info>> {
+	switch term.destructured {
+	case let .Application(info, .Abstraction(_, _, body), operand) where operand.isValue:
+		return .right(substitute(operand, body.value))
+	case let .Application(info, a, b) where a.isValue:
+		return evalStep(b).either(Either.left, { .right(.Application(info, Box(a), Box($0))) })
+	case let .Application(info, a, b):
+		return evalStep(a).either(Either.left, { .right(.Application(info, Box($0), Box(b))) })
+
+	default:
+		return .left(term)
+	}
+}
+
 // MARK: Import
 
-import Prelude
 import Box
+import Either
+import Prelude
