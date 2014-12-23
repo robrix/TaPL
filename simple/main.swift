@@ -10,4 +10,4 @@ let identity = lambda(.Bool, %0)
 
 let result = abstraction • identity
 
-println(typeof(result))
+println((eval(result), typeof(result)))
