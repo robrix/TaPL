@@ -20,13 +20,13 @@ enum Type: Equatable, Printable {
 
 	var description: String {
 		switch self {
-		case .Bool:
+		case Bool:
 			return "Bool"
 
 		case .Unit:
 			return "Unit"
 
-		case let .Function(t, u):
+		case let Function(t, u):
 			return "(\(t.value.description) → \(u.value.description))"
 		}
 	}
