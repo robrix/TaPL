@@ -21,7 +21,7 @@ func lambda(t: Type, x: Term<()>) -> Term<()> {
 
 
 /// Nameless (De Bruijn-indexed) terms.
-enum Term<Info> {
+enum Term<Info>: Printable {
 	case True(Box<Info>)
 	case False(Box<Info>)
 
@@ -30,6 +30,25 @@ enum Term<Info> {
 	case Index(Box<Info>, Int)
 	case Abstraction(Box<Info>, Type, Box<Term>)
 	case Application(Box<Info>, Box<Term>, Box<Term>)
+
+	var description: String {
+		switch self {
+		case True:
+			return "true"
+		case False:
+			return "false"
+
+		case let If(_, condition, then, otherwise):
+			return "if \(condition) \(then) \(otherwise)"
+
+		case let Index(_, n):
+			return "\(n)"
+		case let Abstraction(_, t, b):
+			return "λ \(t) . \(b)"
+		case let Application(_, a, b):
+			return "(\(a)) \(b)"
+		}
+	}
 }
 
 
