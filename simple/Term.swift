@@ -24,7 +24,9 @@ func lambda(t: Type, x: Term<()>) -> Term<()> {
 enum Term<Info> {
 	case True(Box<Info>)
 	case False(Box<Info>)
+
 	case If(Box<Info>, Box<Term>, Box<Term>, Box<Term>)
+
 	case Index(Box<Info>, Int)
 	case Abstraction(Box<Info>, Type, Box<Term>)
 	case Application(Box<Info>, Box<Term>, Box<Term>)
