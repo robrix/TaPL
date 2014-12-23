@@ -16,14 +16,16 @@ func prompt() -> String? {
 	return readline(stdin)
 }
 
-func repl<T>(parser: Combinator<T>.FunctionType, map: T -> ()) {
+func repl<T>(parser: Parser<T>.Function, map: T -> ()) {
 	while let line = prompt() {
 		if line == ":exit" { break }
 
-		if let (term, rest) = parser(input: line) {
+		if let (term, rest) = parser(line) {
 			map(term)
 		} else {
 			println("onoes")
 		}
 	}
 }
+
+import Madness
