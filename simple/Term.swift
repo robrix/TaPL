@@ -58,6 +58,36 @@ enum Term<Info>: Printable {
 			return false
 		}
 	}
+
+	var destructured: DestructuredTerm<Info> {
+		switch self {
+		case let True(info):
+			return .True(info)
+		case let False(info):
+			return .False(info)
+
+		case let If(info, condition, then, otherwise):
+			return .If(info, condition.value, then.value, otherwise.value)
+
+		case let Index(info, n):
+			return .Index(info, n)
+		case let Abstraction(info, type, body):
+			return .Abstraction(info, type, body.value)
+		case let Application(info, a, b):
+			return .Application(info, a.value, b.value)
+		}
+	}
+}
+
+enum DestructuredTerm<Info> {
+	case True(Box<Info>)
+	case False(Box<Info>)
+
+	case If(Box<Info>, Term<Info>, Term<Info>, Term<Info>)
+
+	case Index(Box<Info>, Int)
+	case Abstraction(Box<Info>, Type, Term<Info>)
+	case Application(Box<Info>, Term<Info>, Term<Info>)
 }
 
 
