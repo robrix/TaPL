@@ -146,6 +146,11 @@ func evalStep<Info>(term: Term<Info>) -> Either<Term<Info>, Term<Info>> {
 	}
 }
 
+func eval<Info>(term: Term<Info>) -> Term<Info> {
+	return evalStep(term).either(id, { eval($0) })
+}
+
+
 // MARK: Import
 
 import Box
