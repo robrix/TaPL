@@ -49,6 +49,15 @@ enum Term<Info>: Printable {
 			return "(\(a)) \(b)"
 		}
 	}
+
+	var isValue: Bool {
+		switch self {
+		case Abstraction, True, False:
+			return true
+		default:
+			return false
+		}
+	}
 }
 
 
