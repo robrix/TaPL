@@ -6,6 +6,7 @@ enum Type: Equatable, Printable {
 	case Bool
 	case String
 	case Integer
+	case Double
 	case Unit
 
 	case Function(Box<Type>, Box<Type>)
@@ -30,6 +31,8 @@ enum Type: Equatable, Printable {
 			return "String"
 		case Integer:
 			return "Integer"
+		case Double:
+			return "Double"
 		case Unit:
 			return "Unit"
 
