@@ -52,6 +52,34 @@ enum Term<Info>: Printable {
 }
 
 
+func shift<Info>(term: Term<Info>, by: Int) -> Term<Info> {
+	let walk: (Term<Info>, Int) -> Term<Info> = fix { walk in
+		{ term, c in
+			switch term {
+			case let .True(info):
+				return .True(info)
+			case let .False(info):
+				return .False(info)
+
+			case let .If(info, condition, then, otherwise):
+				return .If(info, condition.map { walk($0, c) }, then.map { walk($0, c) }, otherwise.map { walk($0, c) })
+
+			case let .Index(info, n) where n >= c:
+				return .Index(info, n + by)
+			case let .Index(info, n):
+				return .Index(info, n)
+			case let .Abstraction(info, type, body):
+				return .Abstraction(info, type, body.map { walk($0, c + 1) })
+			case let .Application(info, a, b):
+				return .Application(info, a.map { walk($0, c) }, b.map { walk($0, c) })
+			}
+		}
+	}
+	return walk(term, 0)
+}
+
+
 // MARK: Import
 
+import Prelude
 import Box
