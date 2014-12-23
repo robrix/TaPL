@@ -77,6 +77,31 @@ func shift<Info>(term: Term<Info>, by: Int) -> Term<Info> {
 }
 
 
+func substitute<Info>(index: Int, forTerm: Term<Info>, inTerm: Term<Info>) -> Term<Info> {
+	let walk: (Term<Info>, Int) -> Term<Info> = fix { walk in
+		{ term, c in
+			switch term {
+			case .True, .False:
+				return term
+
+			case let .If(info, condition, then, otherwise):
+				return .If(info, condition.map { walk($0, c) }, then.map { walk($0, c) }, otherwise.map { walk($0, c) })
+
+			case let .Index(_, n) where n == index + c:
+				return shift(forTerm, c)
+			case let .Index(_, n):
+				return term
+			case let .Abstraction(info, type, body):
+				return .Abstraction(info, type, body.map { walk($0, c + 1) })
+			case let .Application(info, a, b):
+				return .Application(info, a.map { walk($0, c) }, b.map { walk($0, c) })
+			}
+		}
+	}
+	return walk(inTerm, 0)
+}
+
+
 // MARK: Import
 
 import Prelude
