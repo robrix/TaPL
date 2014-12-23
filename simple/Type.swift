@@ -2,6 +2,8 @@
 
 enum Type: Equatable, Printable {
 	case Bool
+	case Unit
+
 	case Function(Box<Type>, Box<Type>)
 
 	var functionType: (Type, Type)? {
@@ -20,6 +22,10 @@ enum Type: Equatable, Printable {
 		switch self {
 		case .Bool:
 			return "Bool"
+
+		case .Unit:
+			return "Unit"
+
 		case let .Function(t, u):
 			return "(\(t.value.description) → \(u.value.description))"
 		}
