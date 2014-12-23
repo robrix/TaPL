@@ -22,6 +22,7 @@
 		D49701AC19BEE022005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
 		D49701AD19BEE03A005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
 		D49701AE19BEE03A005D74EC /* REPL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49701AB19BEE022005D74EC /* REPL.swift */; };
+		D4B7EE8E1A4A22FA006D44E9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B7EE8D1A4A22FA006D44E9 /* Parser.swift */; };
 		D4BC9C8619B52EE90091552D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4BC9C8519B52EE90091552D /* main.swift */; };
 		D4BC9C8A19B52EF60091552D /* 3.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46F179019AC22630054B51D /* 3.swift */; };
 		D4BC9C8B19B52EF90091552D /* Parsing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D471DD5419AEACDA00741E82 /* Parsing.swift */; };
@@ -84,6 +85,7 @@
 		D471DD5419AEACDA00741E82 /* Parsing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parsing.swift; sourceTree = "<group>"; };
 		D471DD5819AEB95000741E82 /* Evaluation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluation.swift; sourceTree = "<group>"; };
 		D49701AB19BEE022005D74EC /* REPL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = REPL.swift; sourceTree = "<group>"; };
+		D4B7EE8D1A4A22FA006D44E9 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		D4BC9C8319B52EE90091552D /* repl-3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "repl-3"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BC9C8519B52EE90091552D /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		D4BC9C8F19B560CA0091552D /* Printing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Printing.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				D4417CD71A1ABA2C00195AD3 /* main.swift */,
 				D4417CE11A1ABB8500195AD3 /* Type.swift */,
 				D4417CE31A1AC10800195AD3 /* Term.swift */,
+				D4B7EE8D1A4A22FA006D44E9 /* Parser.swift */,
 			);
 			path = simple;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			files = (
 				D4417CE21A1ABB8500195AD3 /* Type.swift in Sources */,
 				D4417CE41A1AC10800195AD3 /* Term.swift in Sources */,
+				D4B7EE8E1A4A22FA006D44E9 /* Parser.swift in Sources */,
 				D4417CDF1A1ABA8100195AD3 /* REPL.swift in Sources */,
 				D4417CD81A1ABA2C00195AD3 /* main.swift in Sources */,
 			);
