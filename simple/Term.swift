@@ -56,10 +56,8 @@ func shift<Info>(term: Term<Info>, by: Int) -> Term<Info> {
 	let walk: (Term<Info>, Int) -> Term<Info> = fix { walk in
 		{ term, c in
 			switch term {
-			case let .True(info):
-				return .True(info)
-			case let .False(info):
-				return .False(info)
+			case .True, .False:
+				return term
 
 			case let .If(info, condition, then, otherwise):
 				return .If(info, condition.map { walk($0, c) }, then.map { walk($0, c) }, otherwise.map { walk($0, c) })
