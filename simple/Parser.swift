@@ -6,10 +6,11 @@ let function: Parser<Type>.Function = ignore("(") ++ type ++ ignore("->") ++ typ
 let type: Parser<Type>.Function = boolean | function
 
 let parseTerm: Parser<Term<()>>.Function = fix { term in
+	let literal = (%"true" --> const(Term.True(Box(())))) | (%"false" --> const(Term.False(Box(()))))
 	let variable = digit --> { Term.Index(Box(()), $0) }
 	let abstraction = ignore("λ") ++ type ++ ignore(".") ++ term --> { Term.Abstraction(Box(()), $0, Box($1)) }
 	let application = ignore("(") ++ term ++ ignore(" ") ++ term ++ ignore(")") --> { Term.Application(Box(()), Box($0), Box($1)) }
-	return variable | abstraction | application
+	return literal | variable | abstraction | application
 }
 
 
