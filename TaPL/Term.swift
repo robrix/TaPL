@@ -21,7 +21,7 @@ func lambda(t: Type, x: Term<()>) -> Term<()> {
 
 
 /// Nameless (De Bruijn-indexed) terms.
-enum Term<Info>: Printable {
+public enum Term<Info>: Printable {
 	case True(Box<Info>)
 	case False(Box<Info>)
 
@@ -31,7 +31,7 @@ enum Term<Info>: Printable {
 	case Abstraction(Box<Info>, Type, Box<Term>)
 	case Application(Box<Info>, Box<Term>, Box<Term>)
 
-	var description: String {
+	public var description: String {
 		switch self {
 		case True:
 			return "true"
@@ -146,7 +146,7 @@ func evalStep<Info>(term: Term<Info>) -> Either<Term<Info>, Term<Info>> {
 	}
 }
 
-func eval<Info>(term: Term<Info>) -> Term<Info> {
+public func eval<Info>(term: Term<Info>) -> Term<Info> {
 	return evalStep(term).either(id, { eval($0) })
 }
 
