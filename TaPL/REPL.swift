@@ -1,7 +1,5 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-import Darwin
-
 func readline(handle: UnsafeMutablePointer<FILE>) -> String? {
 	let getNonNewline: () -> CChar? = {
 		let c = CChar(getc(handle))
@@ -28,4 +26,8 @@ func repl<T>(parser: Parser<T>.Function, map: T -> ()) {
 	}
 }
 
+
+// MARK: - Imports
+
+import Darwin
 import Madness
