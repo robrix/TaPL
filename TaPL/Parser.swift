@@ -11,6 +11,7 @@ let type: Parser<Type>.Function = fix { type in
 
 public let parseTerm: Parser<Term<()>>.Function = fix { term in
 	let literal = (%"true" --> const(Term.True(Box(())))) | (%"false" --> const(Term.False(Box(()))))
+	let condition = (%"if" ++ whitespace ++ term ++ whitespace ++ %"then" ++ whitespace ++ term ++ whitespace ++ %"else" ++ whitespace ++ term)
 	let variable = digit --> { Term.Index(Box(()), $0) }
 	let abstraction = ignore("λ") ++ type ++ ignore(".") ++ term --> { Term.Abstraction(Box(()), $0, Box($1)) }
 	let application = ignore("(") ++ term ++ whitespace ++ term ++ ignore(")") --> { Term.Application(Box(()), Box($0), Box($1)) }
