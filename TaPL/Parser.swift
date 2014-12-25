@@ -1,7 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 let digit: Parser<Int>.Function = %("0"..."9") --> { strtol($0, nil, 10) }
-let whitespace: Parser<()>.Function = ignore(%" " | %"\r" | %"\t" | %"\n")
+let whitespace: Parser<()>.Function = ignore(%" " | %"\r" | %"\t" | %"\n")+
 
 let type: Parser<Type>.Function = fix { type in
 	let boolean: Parser<Type>.Function = %"Bool" --> const(Type.Bool)
