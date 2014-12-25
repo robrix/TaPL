@@ -1,6 +1,6 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-enum Type: Equatable, Printable {
+public enum Type: Equatable, Printable {
 	// MARK: Base types
 
 	case Bool
@@ -23,7 +23,7 @@ enum Type: Equatable, Printable {
 
 	// MARK: Printable
 
-	var description: Swift.String {
+	public var description: Swift.String {
 		switch self {
 		case Bool:
 			return "Bool"
@@ -102,7 +102,7 @@ func typeof(term: Term<()>, context: [(Int, Type)] = []) -> Either<String, Type>
 
 // MARK: Equatable
 
-func == (left: Type, right: Type) -> Bool {
+public func == (left: Type, right: Type) -> Bool {
 	switch (left, right) {
 	case (.Bool, .Bool):
 		return true

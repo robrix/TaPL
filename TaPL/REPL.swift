@@ -1,24 +1,20 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
-import Darwin
-
-func readline(handle: UnsafeMutablePointer<FILE>) -> String? {
-	let getNonNewline: () -> CChar? = {
-		let c = CChar(getc(handle))
-		return String.fromCString([c, 0]) == "\n" ? nil : c
-	}
-
-	return String.fromCString(Array(SequenceOf(GeneratorOf(getNonNewline))))
+public func readline(handle: UnsafeMutablePointer<FILE>) -> String? {
+	var line: UnsafeMutablePointer<CChar> = nil
+	var length: UInt = 0
+	let result = getline(&line, &length, handle)
+	return String.fromCString(line)
 }
 
-func prompt() -> String? {
+public func prompt(input: UnsafeMutablePointer<FILE>) -> String? {
 	print("> ")
-	return readline(stdin)
+	return readline(input)
 }
 
-func repl<T>(parser: Parser<T>.Function, map: T -> ()) {
-	while let line = prompt() {
-		if line == ":exit" { break }
+public func repl<T>(parser: Parser<T>.Function, map: T -> ()) {
+	while let line = prompt(stdin) {
+		if line == ":exit\n" { break }
 
 		if let (term, rest) = parser(line) {
 			map(term)
@@ -28,4 +24,8 @@ func repl<T>(parser: Parser<T>.Function, map: T -> ()) {
 	}
 }
 
+
+// MARK: - Imports
+
+import Darwin
 import Madness
